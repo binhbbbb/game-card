@@ -69,6 +69,10 @@ Example:
                 left: 0;
             }
 
+            .selected #front {
+              background-color: rgba(255, 150, 150, 1);
+            }
+
             #back {
                 /* back, initially hidden pane */
                 transform: rotateY(180deg);
@@ -326,6 +330,14 @@ Example:
                         type: Boolean,
                         value: false,
                         reflectToAttribute: true
+                    },
+
+                    /* Tells whether the card is "selected" (highlighted) or not. */
+                    selected: {
+                        type: Boolean,
+                        value: false,
+                        reflectToAttribute: true,
+                        observer: '_selectedChanged'
                     }
                 }
             }
@@ -373,6 +385,14 @@ Example:
                 } else {
                     this.$.container.removeEventListener('click', this._flip);
                 }
+            }
+
+            _selectedChanged(selected) {
+              if (selected) {
+                  this.$.container.classList.add("selected");
+              } else {
+                  this.$.container.classList.remove("selected");
+              }
             }
 
         }
