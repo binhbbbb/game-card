@@ -46,6 +46,18 @@
         </template>
     </demo-snippet>
 </div>
-
+<div class="vertical-section-container centered">
+    <h3>Selectable game-card</h3>
+    <demo-snippet>
+        <template>
+            <game-card symbol="♠" rank="k" id="selectable"></game-card>
+        </template>
+    </demo-snippet>
+</div>
+<script>
+selectable.addEventListener("click", function(e) {
+  selectable.highlighted=!selectable.highlighted;
+});
+</script>
 </body>
 </html>
