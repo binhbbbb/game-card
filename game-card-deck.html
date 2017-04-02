@@ -1,0 +1,117 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="game-card.html">
+
+<!--
+`<game-card-deck>` is a playing game card deck element. The deck can be
+shown empty or with a various number of cards, back side up.
+
+Example:
+
+    <game-card-deck card-count=3></game-card-deck>
+
+@demo demo/index.html
+-->
+
+<dom-module id="game-card-deck">
+    <template>
+        <style>
+            :host {
+                display: inline-block;
+                font-size: 3em;
+                height: 272px; /* 88 * 3  +8 (last card padding) */
+                width: 194px; /* 62 * 3 +8 (last card padding) */
+
+                -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Chrome/Safari/Opera */
+                -khtml-user-select: none; /* Konqueror */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently not supported by any browser */
+            }
+
+            :host * {
+                box-sizing: border-box;
+            }
+            #container {
+                position: relative;
+            }
+            .hidden {
+              display: none;
+            }
+            .content {
+                position: absolute;
+                top:0px;
+                left:0px;
+            }
+
+            #card2 {
+                top:4px;
+                left:4px;
+            }
+            #card3 {
+                top:8px;
+                left:8px;
+            }
+
+            .deck {
+              position: absolute;
+              border-radius: 10px;
+              border: 1px solid black;
+            }
+            .deck.out {
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+            }
+            .deck.in {
+              width: calc(100% - 15px*2);
+              height: calc(100% - 15px*2);
+              top: 15px;
+              left: 15px;
+            }
+        </style>
+
+        <div id="container">
+            <div class="deck out" unrevealed>
+              <div class="deck in" unrevealed></div>
+            </div>
+            <game-card class="content" id="card1" unrevealed></game-card>
+            <game-card class="content" id="card2" unrevealed></game-card>
+            <game-card class="content" id="card3" unrevealed></game-card>
+        </div>
+
+    </template>
+
+    <script>
+        class GameCardDeck extends Polymer.Element {
+
+            static get is() { return 'game-card-deck'; }
+
+            static get properties() {
+                return {
+                    /* Defines the number of cards the deck contains. */
+                    cardCount: {
+                        type: Number,
+                        value: 0,
+                        reflectToAttribute: true,
+                        observer: '_cardCountChanged'
+                    }
+                }
+            }
+
+            _cardCountChanged(cardCount) {
+              this.$.card1.classList.toggle("hidden", cardCount < 1);
+              this.$.card2.classList.toggle("hidden", cardCount < 2);
+              this.$.card3.classList.toggle("hidden", cardCount < 3);
+            }
+
+            constructor() {
+                super();
+            }
+        }
+
+        customElements.define(GameCardDeck.is, GameCardDeck);
+
+    </script>
+</dom-module>

@@ -12,6 +12,7 @@
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../game-card.html">
+    <link rel="import" href="../game-card-deck.html">
 
     <custom-style>
         <style is="custom-style" include="demo-pages-shared-styles"></style>
@@ -47,6 +48,15 @@
     </demo-snippet>
 </div>
 <div class="vertical-section-container centered">
+    <h3>Pile of cards</h3>
+    <demo-snippet>
+        <template>
+              <game-card-deck id="deck" card-count="3"></game-card-deck>
+        </template>
+    </demo-snippet>
+</div>
+
+<div class="vertical-section-container centered">
     <h3>Selectable game-card</h3>
     <demo-snippet>
         <template>
@@ -54,10 +64,27 @@
         </template>
     </demo-snippet>
 </div>
+
+<div class="vertical-section-container centered">
+    <h3>Unrevealed flippable game-card</h3>
+    <demo-snippet>
+        <template>
+            <game-card symbol="♠" rank="a" flippable unrevealed></game-card>
+        </template>
+    </demo-snippet>
+</div>
+
 <script>
 selectable.addEventListener("click", function(e) {
   selectable.highlighted=!selectable.highlighted;
 });
+deck.addEventListener("click", function(e) {
+  if (deck.cardCount > 0) {
+    deck.cardCount--;
+  }
+});
 </script>
+
+
 </body>
 </html>
