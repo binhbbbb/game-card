@@ -1,0 +1,72 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="game-card.html">
+
+<!--
+`<game-card-placeholder>` is a placeholder element for game cards.
+
+Example:
+
+    <game-card-placeholder></game-card-placeholder>
+
+@demo demo/index.html
+-->
+
+<dom-module id="game-card-placeholder">
+    <template>
+        <style>
+            :host {
+                display: inline-block;
+                font-size: 3em;
+                height: 264px; /* 88 * 3 */
+                width: 186px; /* 62 * 3 */
+
+                -webkit-touch-callout: none; /* iOS Safari */
+                -webkit-user-select: none; /* Chrome/Safari/Opera */
+                -khtml-user-select: none; /* Konqueror */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently not supported by any browser */
+            }
+
+            :host * {
+                box-sizing: border-box;
+            }
+            .deck {
+              position: relative;
+              border-radius: 10px;
+              border: 1px solid black;
+            }
+            .deck.out {
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+            }
+            .deck.in {
+              width: calc(100% - 15px*2);
+              height: calc(100% - 15px*2);
+              top: 15px;
+              left: 15px;
+            }
+        </style>
+
+        <div class="deck out">
+          <div class="deck in"></div>
+        </div>
+
+    </template>
+
+    <script>
+        class GameCardPlaceholder extends Polymer.Element {
+
+            static get is() { return 'game-card-placeholder'; }
+
+            constructor() {
+                super();
+            }
+        }
+
+        customElements.define(GameCardPlaceholder.is, GameCardPlaceholder);
+
+    </script>
+</dom-module>
