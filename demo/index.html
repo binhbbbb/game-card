@@ -14,6 +14,7 @@
     <link rel="import" href="../game-card.html">
     <link rel="import" href="../game-card-deck.html">
     <link rel="import" href="../game-card-placeholder.html">
+    <link rel="import" href="../game-card-pile.html">
 
     <custom-style>
         <style is="custom-style" include="demo-pages-shared-styles"></style>
@@ -80,6 +81,16 @@
     <demo-snippet>
         <template>
             <game-card-placeholder></game-card-placeholder>
+        </template>
+    </demo-snippet>
+</div>
+
+<div class="vertical-section-container centered">
+    <h3>game-card-pile, empty and with a card</h3>
+    <demo-snippet>
+        <template>
+          <game-card-pile></game-card-pile>
+          <game-card-pile top-card-symbol="♠" top-card-rank="a"></game-card-pile>
         </template>
     </demo-snippet>
 </div>
