@@ -48,7 +48,7 @@ Example:
 
         <div id="container">
             <game-card-placeholder></game-card-placeholder>
-            <game-card id="topCard" symbol="[[topCardSymbol]]" rank="[[topCardRank]]"></game-card>
+            <game-card id="topCard" symbol="[[topCardSymbol]]" rank="[[topCardRank]]" highlighted="[[topCardHighlighted]]"></game-card>
         </div>
 
     </template>
@@ -75,6 +75,11 @@ Example:
                       reflectToAttribute: true,
                       observer: '_topCardChanged'
                   },
+                  topCardHighlighted: {
+                      type: Boolean,
+                      value: false,
+                      reflectToAttribute: true
+                  }
                 }
             }
             _topCardChanged(cardCount) {
