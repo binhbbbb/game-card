@@ -1,3 +1,6 @@
+[![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/game-card)
+[![Stars on Vaadin Directory](https://img.shields.io/vaadin-directory/star/game-card.svg)](https://vaadin.com/directory/component/game-card)
+
 # \<game-card\>
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/vpusher/game-card)
